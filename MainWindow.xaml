@@ -11,9 +11,14 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" Padding="0,0,0,0" Margin="4,0,0,0" ToolBar.OverflowMode="AsNeeded">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid Background="#FFFFD6E3">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
@@ -37,10 +42,7 @@
 
         <Grid Grid.Row="1">
             <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FFC5B6EF" Offset="1"/>
-                </LinearGradientBrush>
+                <ImageBrush ImageSource="/Design sem nome2.png"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -60,14 +62,14 @@
                     materialDesign:ButtonAssist.CornerRadius="10" 
                     Background="#FF673AB7">
 
-                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <StackPanel.Background>
                             <ImageBrush/>
                         </StackPanel.Background>
 
                         <Image Source="/Add.png" Width="100" Height="100" Stretch="Uniform" Margin="0,0,0,40"/>
 
-                                    <TextBlock TextAlignment="Center" Foreground="White">
+                        <TextBlock TextAlignment="Center" Foreground="White">
                         Novo
                         <LineBreak/>
                         Cliente
@@ -75,7 +77,7 @@
                         </TextBlock>
                     </StackPanel>
                 </Button>
-                
+
             </StackPanel>
             <Border Grid.Column="1" Width="2" Background="#FF200C3E" />
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="">

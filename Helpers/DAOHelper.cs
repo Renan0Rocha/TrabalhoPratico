@@ -19,42 +19,12 @@ namespace TrabalhoPratico.Helpers
             return text;
         }
 
-        public static int GetInt(MySqlDataReader reader, string column_name)
-        {
-            int value = 0;
-
-            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
-                value = reader.GetInt32(column_name);
-
-            return value;
-        }
-
-        public static double GetDouble(MySqlDataReader reader, string column_name)
-        {
-            double value = 0.0;
-
-            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
-                value = reader.GetDouble(column_name);
-
-            return value;
-        }
-
         public static DateTime? GetDateTime(MySqlDataReader reader, string column_name)
         {
             DateTime? value = null;
 
             if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
                 value = reader.GetDateTime(column_name);
-
-            return value;
-        }
-
-        public static TimeSpan? GetTimeSpan(MySqlDataReader reader, string column_name)
-        {
-            TimeSpan? value = null;
-
-            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
-                value = reader.GetTimeSpan(column_name);
 
             return value;
         }
