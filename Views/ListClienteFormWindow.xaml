@@ -1,0 +1,65 @@
+﻿<Window x:Class="TrabalhoPratico.Views.ListClienteFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabalhoPratico.Views"
+        mc:Ignorable="d"
+        Title="ListClienteFormWindow"         
+        Height="1000" 
+        Width="1500" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Background="#FF200C3E">
+            <Label Content="Lista de Clientes" 
+           Foreground="White" 
+           FontSize="35" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Center"
+           FontFamily="Fonts/#Dosis" />
+        </Grid>
+        <DataGrid Grid.Row="1" Margin="5,5,5,5" x:Name="dataGridCliente" IsReadOnly="true" Foreground="White"
+              AutoGenerateColumns="False"  AlternationCount="2" Grid.ColumnSpan="2" FontSize="22" BorderBrush="#FF1F1F1F" FontStyle="Normal" FontWeight="Normal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome do Cliente" Binding="{Binding Nome}" Foreground="Black" FontSize="24"/>
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}" Foreground="Black" FontSize="24"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Foreground="Black" FontSize="24"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" Foreground="Black" FontSize="24"/>
+                <DataGridTextColumn Header="Data de Nascimento" Binding="{Binding DataNascimento, StringFormat=dd/MM/yyyy}" Foreground="Black" FontSize="18">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button x:Name="btnAtualizarCliente" 
+                        Content="Atualizar Cliente"
+                        ToolTip="Atualizar Registro" Margin="0 0 5 0" Click="btnAtualizarCliente_Click" Cursor="Hand" />
+                                <Button x:Name="btnExcluirCliente" 
+                        Content="Excluir Cliente"
+                        ToolTip="Excluir Registro" Margin="0 0 15 0" Click="btnExcluirCliente_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
